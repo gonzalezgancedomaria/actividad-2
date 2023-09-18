@@ -39,16 +39,17 @@ class RegisteredUserController extends Controller
     {
         $request->validate([
             'nombre' => ['required', 'string', 'min:2', 'max:20', new sinNumeros],
-            'apellidos' => ['required', 'string', 'min:2', 'max:40', new sinNumeros], 
+            'apellidos' => ['required', 'string', 'min:2', 'max:40', new sinNumeros],
             'DNI' => ['required', 'string', 'max:9', new formatoDNI],
-            'email' => ['required', 'string', 'email', 'max:50', new formatoEmail, 'unique:'.User::class], 
+            'email' => ['required', 'string', 'email', 'max:50', new formatoEmail, 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'repeatPassword' => ['required', 'confirmed', Rules\Password::defaults()],
-            'telefono' => ['string', 'min:9', 'max:12', new formatoTelefono], 
-            'pais' => [ 'string', 'min:2', 'max:40'], 
-            'IBAN' => ['required', 'string', 'min:24', 'max:24', new formatoIBAN],  
+            'password_confirmation' => ['required', 'confirmed', Rules\Password::defaults()],
+            'telefono' => ['string', 'min:9', 'max:12', new formatoTelefono],
+            'pais' => [ 'string', 'min:2', 'max:40'],
+            'IBAN' => ['required', 'string', 'min:24', 'max:24', new formatoIBAN],
             'sobreTi' => ['string', 'min:20', 'max:250'],
         ]);
+        dd($request->nombre);
 
         $user = User::create([
             'nombre' => $request->nombre,
