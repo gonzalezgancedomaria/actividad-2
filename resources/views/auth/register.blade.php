@@ -48,7 +48,9 @@
 
             <x-text-input id="password_confirmation" class="block mt-1 w-full"
                             type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
+                            name="password_confirmation"
+                            onpaste="return false"
+                            required autocomplete="new-password" />
 
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
@@ -77,7 +79,7 @@
          <!-- sobreTi -->
          <div>
             <x-input-label for="sobreTi" :value="__('Sobre ti')" />
-            <x-text-input id="sobreTi" class="block mt-1 w-full" type="text" name="sobreTi" :value="old('sobreTi')" required autofocus autocomplete="sobreTi" />
+            <x-text-input id="sobreTi" class="block mt-1 w-full" type="text" name="sobreTi" :value="old('sobreTi')" autofocus autocomplete="sobreTi" />
             <x-input-error :messages="$errors->get('sobreTi')" class="mt-2" />
         </div>
 

@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('telefono', 12);
             $table->string('pais');
             $table->string('IBAN', 24);
-            $table->string('sobreTi', 250);
+            $table->string('sobreTi', 250)->nullable();
             $table->string('password');
             $table->timestamps();
         });
