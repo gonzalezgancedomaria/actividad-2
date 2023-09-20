@@ -25,7 +25,8 @@ class User extends Authenticatable
         'telefono',
         'pais',
         'IBAN',
-        'sobreTi'
+        'sobreTi',
+        'password'
     ];
 
     /**

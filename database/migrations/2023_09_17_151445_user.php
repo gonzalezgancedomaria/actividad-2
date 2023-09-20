@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('pais');
             $table->string('IBAN', 24);
             $table->string('sobreTi', 250);
+            $table->string('password');
             $table->timestamps();
         });
     }
