@@ -16,11 +16,11 @@
             <x-input-error :messages="$errors->get('apellidos')" class="mt-2" />
         </div>
 
-        <!-- DNI -->
+        <!-- dni -->
         <div>
-            <x-input-label for="DNI" :value="__('DNI')" />
-            <x-text-input id="DNI" class="block mt-1 w-full" type="text" name="DNI" :value="old('DNI')" required autofocus autocomplete="DNI" />
-            <x-input-error :messages="$errors->get('DNI')" class="mt-2" />
+            <x-input-label for="dni" :value="__('DNI')" />
+            <x-text-input id="dni" class="block mt-1 w-full" type="text" name="dni" :value="old('dni')" required autofocus autocomplete="dni" />
+            <x-input-error :messages="$errors->get('dni')" class="mt-2" />
         </div>
 
         <!-- Email Address -->
@@ -56,28 +56,32 @@
         <!-- telefono -->
         <div>
             <x-input-label for="telefono" :value="__('Telefono')" />
-            <x-text-input id="telefono" class="block mt-1 w-full" type="text" name="telefono" :value="old('telefono')" required autofocus autocomplete="telefono" />
+            <x-text-input id="telefono" class="block mt-1 w-full" type="text" name="telefono" :value="old('telefono')" autofocus autocomplete="telefono" />
             <x-input-error :messages="$errors->get('telefono')" class="mt-2" />
         </div>
 
          <!-- pais -->
          <div>
             <x-input-label for="pais" :value="__('Pais')" />
-            <x-text-input id="pais" class="block mt-1 w-full" type="text" name="pais" :value="old('pais')" required autofocus autocomplete="pais" />
+            <!-- <select name="pais" id="pais" class="block mt-1 w-full" name="pais" :value="old('pais')">
+                @foreach ($paises as $pais)
+                    <option value="{{ $pais }}" >{{ $pais }}</option>
+                @endforeach
+            </select> -->
             <x-input-error :messages="$errors->get('pais')" class="mt-2" />
         </div>
 
-         <!-- IBAN -->
+         <!-- iban -->
          <div>
-            <x-input-label for="IBAN" :value="__('IBAN')" />
-            <x-text-input id="IBAN" class="block mt-1 w-full" type="text" name="IBAN" :value="old('IBAN')" required autofocus autocomplete="IBAN" />
-            <x-input-error :messages="$errors->get('IBAN')" class="mt-2" />
+            <x-input-label for="iban" :value="__('IBAN')" />
+            <x-text-input id="iban" class="block mt-1 w-full" type="text" name="iban" :value="old('iban')" required autofocus autocomplete="iban" />
+            <x-input-error :messages="$errors->get('iban')" class="mt-2" />
         </div>
 
          <!-- sobreTi -->
          <div>
             <x-input-label for="sobreTi" :value="__('Sobre ti')" />
-            <x-text-input id="sobreTi" class="block mt-1 w-full" type="text" name="sobreTi" :value="old('sobreTi')" required autofocus autocomplete="sobreTi" />
+            <x-text-input id="sobreTi" class="block mt-1 w-full" type="text" name="sobreTi" :value="old('sobreTi')" autofocus autocomplete="sobreTi" />
             <x-input-error :messages="$errors->get('sobreTi')" class="mt-2" />
         </div>
 

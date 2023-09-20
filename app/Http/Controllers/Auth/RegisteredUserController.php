@@ -14,20 +14,76 @@ use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 
 //Custom validations
-use App\Rules\sinNumeros;
 use App\Rules\formatoDNI;
 use App\Rules\formatoEmail;
 use App\Rules\formatoTelefono;
 use App\Rules\formatoIBAN;
 
+require_once(base_path('App\Tools\paises.php'));
+
 class RegisteredUserController extends Controller
 {
+
+     // Listado de países
+     const paises = [
+        'Albania',
+        'Alemania',
+        'Andorra',
+        'Austria',
+        'Bélgica',
+        'Bosnia y Herzegovina',
+        'Bulgaria',
+        'Chipre',
+        'Croacia',
+        'Dinamarca',
+        'Eslovaquia',
+        'Eslovenia',
+        'España',
+        'Estonia',
+        'Finlandia',
+        'Francia',
+        'Grecia',
+        'Hungría',
+        'Irlanda',
+        'Islandia',
+        'Italia',
+        'Kosovo',
+        'Letonia',
+        'Liechtenstein',
+        'Lituania',
+        'Luxemburgo',
+        'Macedonia del Norte',
+        'Malta',
+        'Moldavia',
+        'Mónaco',
+        'Montenegro',
+        'Noruega',
+        'Países Bajos',
+        'Polonia',
+        'Portugal',
+        'Reino Unido',
+        'República Checa',
+        'Rumania',
+        'Rusia',
+        'San Marino',
+        'Serbia',
+        'Suecia',
+        'Suiza',
+        'Ucrania',
+        'Vaticano',
+    ];
+
     /**
      * Display the registration view.
      */
     public function create(): View
     {
         return view('auth.register');
+    }
+
+    public function paises(): View
+    {
+        return view('auth.register', ['paises' => self::paises]);
     }
 
     /**
@@ -38,14 +94,14 @@ class RegisteredUserController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
-            'nombre' => ['required', 'string', 'min:2', 'max:20', new sinNumeros],
-            'apellidos' => ['required', 'string', 'min:2', 'max:40', new sinNumeros],
-            'DNI' => ['required', 'string', 'max:9', new formatoDNI],
+            'nombre' => ['required', 'string', 'min:2', 'max:20', 'alpha'],
+            'apellidos' => ['required', 'string', 'min:2', 'max:40', 'alpha'],
+            'dni' => ['required', 'string', 'max:9', new formatoDNI],
             'email' => ['required', 'string', 'email', 'max:50', new formatoEmail, 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'telefono' => ['string', 'min:9', 'max:12', new formatoTelefono],
             'pais' => [ 'string', 'min:2', 'max:40'],
-            'IBAN' => ['required', 'string', 'min:24', 'max:24', new formatoIBAN],
+            'iban' => ['required', 'string', 'min:24', 'max:24', new formatoIBAN],
             'sobreTi' => ['string', 'min:20', 'max:250'],
         ]);
 
