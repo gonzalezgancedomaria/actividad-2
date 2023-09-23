@@ -24,8 +24,8 @@ require_once(base_path('App\Tools\paises.php'));
 class RegisteredUserController extends Controller
 {
 
-     // Listado de países
-     const paisesList = [
+    // Listado de países
+    const paisesList = [
         'Albania',
         'Alemania',
         'Andorra',
@@ -79,7 +79,7 @@ class RegisteredUserController extends Controller
     public function create(): View
     {
         $paises = self::paisesList;
-        return view('auth.register',compact('paises'));
+        return view('auth.register', compact('paises'));
     }
 
     public function paises(): View
@@ -96,14 +96,14 @@ class RegisteredUserController extends Controller
     {
         $request->validate([
             'nombre' => ['required', 'string', 'min:2', 'max:20', 'alpha'],
-            'apellidos' => ['required', 'string', 'min:2', 'max:40', 'alpha'],
+            'apellidos' => ['required', 'string', 'min:2', 'max:40', 'regex:/^[a-zA-Z\s]*$/'],
             'dni' => ['required', 'string', 'max:9', new formatoDNI],
-            'email' => ['required', 'string', 'email', 'max:50', new formatoEmail, 'unique:'.User::class],
+            'email' => ['required', 'string', 'email', 'max:50', new formatoEmail, 'unique:' . User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'telefono' => ['string', 'min:9', 'max:12', new formatoTelefono],
-            'pais' => [ 'string',],
+            'telefono' => ['nullable', 'string', 'min:9', 'max:12', new formatoTelefono],
+            'pais' => ['sometimes', 'string'],
             'iban' => ['required', 'string', 'min:24', 'max:24', new formatoIBAN],
-            'sobreTi' => ['string', 'min:20', 'max:250'],
+            'sobreTi' => ['nullable', 'string', 'min:20', 'max:250'],
         ]);
 
         $user = User::create([
