@@ -15,7 +15,6 @@ use Illuminate\View\View;
 
 //Custom validations
 use App\Rules\formatoDNI;
-use App\Rules\formatoEmail;
 use App\Rules\formatoTelefono;
 use App\Rules\formatoIBAN;
 
