@@ -109,12 +109,12 @@ class RegisteredUserController extends Controller
         $user = User::create([
             'nombre' => $request->nombre,
             'apellidos' => $request->apellidos,
-            'DNI' => $request->DNI,
+            'DNI' => $request->dni,
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'telefono' => $request->telefono,
             'pais' => $request->pais,
-            'IBAN' => $request->IBAN,
+            'IBAN' => $request->iban,
             'sobreTi' => $request->sobreTi,
         ]);
 
