@@ -98,7 +98,7 @@ class RegisteredUserController extends Controller
             'nombre' => ['required', 'string', 'min:2', 'max:20', 'alpha'],
             'apellidos' => ['required', 'string', 'min:2', 'max:40', 'regex:/^[a-zA-Z\s]*$/'],
             'dni' => ['required', 'string', 'max:9', new formatoDNI],
-            'email' => ['required', 'string', 'email', 'max:50', new formatoEmail, 'unique:' . User::class],
+            'email' => ['required', 'string', 'email', 'max:50', 'unique:' . User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'telefono' => ['nullable', 'string', 'min:9', 'max:12', new formatoTelefono],
             'pais' => ['sometimes', 'string'],

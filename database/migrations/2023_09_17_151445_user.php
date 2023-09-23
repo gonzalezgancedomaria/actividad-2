@@ -17,8 +17,8 @@ return new class extends Migration
             $table->string('apellidos', 40);
             $table->string('DNI', 9);
             $table->string('email')->unique();
-            $table->string('telefono', 12);
-            $table->string('pais');
+            $table->string('telefono', 12)->nullable();
+            $table->string('pais')->nullable();
             $table->string('IBAN', 24);
             $table->string('sobreTi', 250)->nullable();
             $table->string('password');
