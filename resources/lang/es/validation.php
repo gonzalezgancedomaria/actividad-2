@@ -2,7 +2,7 @@
     return [
         'required' => 'El campo :attribute es obligatorio.',
         'min' => [
-            'string' => 'El campo :attribute must be at least :min caracteres.',
+            'string' => 'El campo :attribute debe tener al menos :min caracteres.',
         ],
         'max' => [
             'string' => 'El campo :attribute no debería tener más de :max caracteres.',
@@ -12,6 +12,8 @@
         'alpha' => 'El campo :attribute debe contener solo caracteres alphas.',
         'numeric' => 'El campo :attribute debe contener solo caracteres numéricos.',
         'alpha_num' => 'El campo :attribute debe contener caracteres alpha-numéricos.',
-        'confirmed' => 'Las contraseñas no coinciden.'
+        'confirmed' => 'Las contraseñas no coinciden.',
+        'auth.throttle'=>'test',
+        'auth.failed'=>'test',
     ];
 ?>
