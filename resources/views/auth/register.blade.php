@@ -34,10 +34,7 @@
         <div class="mt-4">
             <x-input-label for="password" :value="__('Password')" />
 
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="new-password" />
+            <x-text-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
 
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
         </div>
@@ -46,11 +43,7 @@
         <div class="mt-4">
             <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
 
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                            type="password"
-                            name="password_confirmation"
-                            onpaste="return false"
-                            required autocomplete="new-password" />
+            <x-text-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" onpaste="return false" required autocomplete="new-password" />
 
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
@@ -62,26 +55,23 @@
             <x-input-error :messages="$errors->get('telefono')" class="mt-2" />
         </div>
 
-         <!-- pais -->
-         <div>
+        <!-- pais -->
+        <div>
             <x-input-label for="pais" :value="__('Pais')" />
-            <!-- <select name="pais" id="pais" class="block mt-1 w-full" name="pais" :value="old('pais')">
-                @foreach ($paises as $pais)
-                    <option value="{{ $pais }}" >{{ $pais }}</option>
-                @endforeach
-            </select> -->
+            <x-input-select name="pais" id="pais" class="block mt-1 w-full" name="pais" :values="$paises" :value="old('pais')" />
+
             <x-input-error :messages="$errors->get('pais')" class="mt-2" />
         </div>
 
-         <!-- iban -->
-         <div>
+        <!-- iban -->
+        <div>
             <x-input-label for="iban" :value="__('IBAN')" />
             <x-text-input id="iban" class="block mt-1 w-full" type="text" name="iban" :value="old('iban')" required autofocus autocomplete="iban" />
             <x-input-error :messages="$errors->get('iban')" class="mt-2" />
         </div>
 
-         <!-- sobreTi -->
-         <div>
+        <!-- sobreTi -->
+        <div>
             <x-input-label for="sobreTi" :value="__('Sobre ti')" />
             <x-text-input id="sobreTi" class="block mt-1 w-full" type="text" name="sobreTi" :value="old('sobreTi')" autofocus autocomplete="sobreTi" />
             <x-input-error :messages="$errors->get('sobreTi')" class="mt-2" />

@@ -25,7 +25,7 @@ class RegisteredUserController extends Controller
 {
 
      // Listado de países
-     const paises = [
+     const paisesList = [
         'Albania',
         'Alemania',
         'Andorra',
@@ -78,12 +78,13 @@ class RegisteredUserController extends Controller
      */
     public function create(): View
     {
-        return view('auth.register');
+        $paises = self::paisesList;
+        return view('auth.register',compact('paises'));
     }
 
     public function paises(): View
     {
-        return view('auth.register', ['paises' => self::paises]);
+        return view('auth.register', ['paises' => self::paisesList]);
     }
 
     /**
